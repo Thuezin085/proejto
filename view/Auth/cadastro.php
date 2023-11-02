@@ -48,14 +48,50 @@
 
             <div class="col-4">
                 <label for="" class="mt-4 mb-2 labelPadrao">Situação:</label>
-                <select name="" id="" class="input form-control">
+                <select name="" id="" class="input form-control" oninput="mostrarCampos(this)">
                     <option value="" selected disabled></option>
-                    <option value="">Desaparecido</option>
-                    <option value="">Procurando Tutor</option>
+                    <option value="desaparecido">Desaparecido</option>
+                    <option value="registrar">Apenas Registrar</option>
                 </select>
             </div>
+
+            <div class="col-4 data_desaparecimento">
+                <label for="" class="mt-4 mb-2 labelPadrao">Data de Desaparecimento:</label>
+                <input type="date"  class="input form-control">
+            </div>
         </div>
+
+        <div class="detalhes mt-5">
+            <div class="row">
+                <div class="col-lg-8 col-12">
+                    <label for="" class="mt-4 mb-2 labelPadrao">Detalhes:</label>
+                    <textarea name="" id="" class="input form-control"></textarea>
+                </div>
+                <div class="col-lg-4 col-12 d-flex flex-column">
+                    <label for="" class="mt-4 mb-2 labelPadrao">Foto do Pet:</label>
+                    <div class="foto" onclick="$('#fotoPet').trigger('click')">
+                        Inserir Foto
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-image" viewBox="0 0 16 16">
+                            <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                            <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
+                        </svg>
+                    </div>
+                    <input type="file" class="d-none" id="fotoPet">
+                </div>       
+            </div> 
+
+            <div class="d-flex justify-content-end mt-3">
+                <button class="labelPadrao btn btn-cadastrar" type="submit">Cadastrar</button>
+
+            </div>
+        </div>
+
+        
     </form>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../../public/js/cadastro.js."></script>
 </body>
 </html>
 
