@@ -92,4 +92,8 @@ textarea {
 
 .btn-cadastrar {
     background-color: #40229b50;
+    transition: 1s ease all;
+}
+.btn-cadastrar:hover {
+    background-color: #5c36ce1a; 
 }

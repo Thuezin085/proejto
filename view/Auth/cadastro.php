@@ -24,7 +24,7 @@
 <body>
     <?php include_once('../components/navbar.php') ?>
 
-    <form class="container mt-5 p-5 position-relative">
+    <form class="container mt-5 p-5 position-relative" method="POST" action="../../backEnd/cadastro.php" enctype="multipart/form-data">
         <label class="titulo">
             Cadastre seu Pet 
             <span class="ms-2 mb-2">
@@ -34,21 +34,21 @@
         <div class="row">
             <div class="col-8">
                 <div class="input-cadastro">
-                    <input required="" type="search" name="search" autocomplete="off" class="input">
+                    <input required="" type="search" name="nome" autocomplete="off" class="input">
                     <label class="cadastro-label">Nome do Pet</label>
                 </div>
             </div>
             
             <div class="col-4">
                 <div class="input-cadastro">
-                    <input required="" type="search" name="search" autocomplete="off" class="input">
+                    <input required="" type="search" name="raca" autocomplete="off" class="input">
                     <label class="cadastro-label">Raça</label>
                 </div>
             </div>
 
             <div class="col-4">
                 <label for="" class="mt-4 mb-2 labelPadrao">Situação:</label>
-                <select name="" id="" class="input form-control" oninput="mostrarCampos(this)">
+                <select name="situacao" id="" class="input form-control" oninput="mostrarCampos(this)">
                     <option value="" selected disabled></option>
                     <option value="desaparecido">Desaparecido</option>
                     <option value="registrar">Apenas Registrar</option>
@@ -57,7 +57,7 @@
 
             <div class="col-4 data_desaparecimento">
                 <label for="" class="mt-4 mb-2 labelPadrao">Data de Desaparecimento:</label>
-                <input type="date"  class="input form-control">
+                <input type="date"  class="input form-control" name="data_desaparecimento">
             </div>
         </div>
 
@@ -65,7 +65,7 @@
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <label for="" class="mt-4 mb-2 labelPadrao">Detalhes:</label>
-                    <textarea name="" id="" class="input form-control"></textarea>
+                    <textarea name="detalhes" id="" class="input form-control"></textarea>
                 </div>
                 <div class="col-lg-4 col-12 d-flex flex-column">
                     <label for="" class="mt-4 mb-2 labelPadrao">Foto do Pet:</label>
@@ -77,13 +77,12 @@
                             <path d="M2.002 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-12zm12 1a1 1 0 0 1 1 1v6.5l-3.777-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12V3a1 1 0 0 1 1-1h12z"/>
                         </svg>
                     </div>
-                    <input type="file" class="d-none" id="fotoPet">
+                    <input type="file" class="d-none" id="fotoPet" name="foto">
                 </div>       
             </div> 
 
             <div class="d-flex justify-content-end mt-3">
-                <button class="labelPadrao btn btn-cadastrar" type="submit">Cadastrar</button>
-
+                <button class="labelPadrao btn btn-cadastrar shadow-sm" type="submit">Cadastrar</button>
             </div>
         </div>
 
@@ -95,11 +94,3 @@
 </body>
 </html>
 
-
-<!-- 
-
-Nome
-Raça
-Data de desaparecido 
-detalhes
-foto
