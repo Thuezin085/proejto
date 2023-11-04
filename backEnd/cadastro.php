@@ -35,5 +35,5 @@ try {
     throw $th;
 }
 
-echo 'cadastrou certo';
+header("Location: ../view/Auth/home.php");
 $stmt->close();
