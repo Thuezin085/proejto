@@ -26,14 +26,28 @@ try {
     $stmt->bind_param("sssss", $nome, $raca, $data_desaparecimento, $detalhes, $foto_destino);
     $result = $stmt->execute();
 
+    if (!$result) {
+        throw new Exception("Erro ao inserir o pet");
+    }
+
+    $pet_id = $conn->insert_id;
+
     $conn->commit();
-    if($result && !empty($foto_destino)) {
+
+    if (!empty($foto_destino)) {
         move_uploaded_file($foto_temp, "../public/img/$foto_destino");
     }
+
 } catch (\Throwable $th) {
     $conn->rollback();
     throw $th;
+} finally {
+    $stmt->close();
 }
 
-header("Location: ../view/Auth/home.php");
-$stmt->close();
+if ($data_desaparecimento) {
+    header("Location: ../view/Auth/home.php");
+} else {
+    header('Location: ../view/Auth/pet.php?id=' . $pet_id);
+}
+
