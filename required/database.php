@@ -3,7 +3,16 @@
 $servername = "localhost";
 $username = "root";
 $password = '';
-$database = "proejto"; 
+
+$conn = new mysqli($servername, $username, $password);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$database = "proejto";
+$sql = "CREATE DATABASE IF NOT EXISTS $database";
+$conn->query($sql);
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -18,10 +27,7 @@ $sql = "CREATE TABLE IF NOT EXISTS usuarios (
     senha VARCHAR(255) NOT NULL
 )";
 
-
 $conn->query($sql);
-
-
 
 $sql = "CREATE TABLE IF NOT EXISTS pets (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -34,5 +40,3 @@ $sql = "CREATE TABLE IF NOT EXISTS pets (
 
 $conn->query($sql);
 
-
-// $conn->close(); 
