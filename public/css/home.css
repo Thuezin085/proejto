@@ -17,6 +17,9 @@
     font-family: 'Montserrat';
     font-weight: bolder;
 }
+.font16 {
+    font-size: 16px;
+}
 .valores {
     font-size: 12px;
     max-width: 100%;
@@ -25,4 +28,7 @@
     font-size: 12px;
     max-height: 100px;
     overflow-y: auto;
+}
+body {
+    background-color: #A2B6FD!important;
 }

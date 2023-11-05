@@ -32,6 +32,9 @@
   <main class="container mt-5">
     <div class="row">
 
+      <div class="col-12">
+        <label for="" class="padrao mb-3">Pets Desaparecidos:</label>
+      </div>
 
       <?php
         foreach ($pets as $pet) {

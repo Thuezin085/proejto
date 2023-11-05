@@ -51,3 +51,8 @@ if ($data_desaparecimento) {
     header('Location: ../view/Auth/pet.php?id=' . $pet_id);
 }
 
+/*
+Contato
+opção baixar qr code
+demonstrativo de como gerar qr code para seu pet
+*/

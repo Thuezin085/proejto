@@ -15,6 +15,7 @@
             <li class="nav-item d-flex">
               <a class="nav-link <?php if($_SERVER['PHP_SELF'] == '/proejto/view/Auth/home.php')  { echo 'active'; } ?>" href="home.php">HOME</a>
               <a class="nav-link ms-5 <?php if($_SERVER['PHP_SELF'] == '/proejto/view/Auth/cadastro.php')  { echo 'active'; } ?>" href="cadastro.php">CADASTRE SEU PET</a>
+              <a class="nav-link ms-5 <?php if($_SERVER['PHP_SELF'] == '/proejto/view/Auth/instrucoes.php')  { echo 'active'; } ?>" href="instrucoes.php">INSTRUÇÕES</a>
             </li>
 
 

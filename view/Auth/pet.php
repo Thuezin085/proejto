@@ -67,10 +67,12 @@
                     <label for="" class="padrao d-block">Raça:</label>
                     <p class="padrao valores text-truncate text-muted "><?= $pet['raca'] ?></p>
             </div>
-            <div class="mb-2">
-                <label for="" class="padrao d-block">Data de Desaparecimento:</label>
-                <span class="padrao text-muted"><?= date('d/m/Y', strtotime($pet['data_desaparecido'])) ?></span>
-            </div>
+            <?php if(isset($pet['data_desaparecido']))  { ?>
+                <div class="mb-2">
+                    <label for="" class="padrao d-block">Data de Desaparecimento:</label>
+                    <span class="padrao text-muted"><?= date('d/m/Y', strtotime($pet['data_desaparecido'])) ?></span>
+                </div>
+            <?php } ?>
             <div class="mb-1">
                 <label for="" class="padrao d-block">Detalhes: </label>
                 <span class="padrao detalhes text-muted"><?= $pet['detalhes'] ?></span>
