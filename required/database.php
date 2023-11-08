@@ -33,6 +33,7 @@ $sql = "CREATE TABLE IF NOT EXISTS pets (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(30) NOT NULL,
     raca VARCHAR(30) NOT NULL,
+    contato VARCHAR(15) NOT NULL,
     data_desaparecido DATE NULL,
     detalhes TEXT NULL,
     foto VARCHAR(255) NULL

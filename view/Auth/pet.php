@@ -64,8 +64,12 @@
                 <p class="padrao valores text-truncate text-muted "><?= $pet['nome'] ?></p>
             </div>
             <div class="mb-2">
-                    <label for="" class="padrao d-block">Raça:</label>
-                    <p class="padrao valores text-truncate text-muted "><?= $pet['raca'] ?></p>
+                <label for="" class="padrao d-block">Raça:</label>
+                <p class="padrao valores text-truncate text-muted "><?= $pet['raca'] ?></p>
+            </div>
+            <div class="mb-2">
+                <label for="" class="padrao d-block">Contato:</label>
+                <p class="padrao valores text-truncate text-muted "><?= $pet['contato'] ?></p>
             </div>
             <?php if(isset($pet['data_desaparecido']))  { ?>
                 <div class="mb-2">

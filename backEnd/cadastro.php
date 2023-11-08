@@ -6,6 +6,7 @@
 $nome = $_POST['nome'];
 $raca = $_POST['raca'];
 $situacao = $_POST['situacao'];
+$contato =  $_POST['contato'];
 $data_desaparecimento = $situacao == 'desaparecido' ? $_POST['data_desaparecimento'] : null;
 $detalhes = $_POST['detalhes'];
 
@@ -18,12 +19,13 @@ if (!empty($foto)) {
     $foto_destino = "pets/" . $foto_nome;
 }
 
+
 try {
     $conn->begin_transaction();
 
-    $sql = "INSERT INTO pets (nome, raca, data_desaparecido, detalhes, foto) VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO pets (nome, raca, data_desaparecido, contato, detalhes, foto) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssss", $nome, $raca, $data_desaparecimento, $detalhes, $foto_destino);
+    $stmt->bind_param("ssssss", $nome, $raca, $data_desaparecimento, $contato, $detalhes, $foto_destino);
     $result = $stmt->execute();
 
     if (!$result) {

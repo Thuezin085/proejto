@@ -63,6 +63,12 @@
 
         <div class="detalhes mt-5">
             <div class="row">
+                <div class="col-4">
+                    <label for="" class="mt-4 mb-2 labelPadrao">Contato:</label>
+                    <input type="number" name="contato" class="input form-control">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-lg-8 col-12">
                     <label for="" class="mt-4 mb-2 labelPadrao">Detalhes:</label>
                     <textarea name="detalhes" id="" class="input form-control"></textarea>
