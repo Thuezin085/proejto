@@ -36,6 +36,12 @@ try {
 
     $conn->commit();
 
+    // Verificar se a pasta pets existe, senão, criar
+    $pets_directory = "../public/img/pets";
+    if (!is_dir($pets_directory)) {
+        mkdir($pets_directory, 0777, true);
+    }
+
     if (!empty($foto_destino)) {
         move_uploaded_file($foto_temp, "../public/img/$foto_destino");
     }
