@@ -1,30 +1,20 @@
 <?php
-    require_once('../../required/auth.php');
+    session_start();
     require_once('../../required/database.php');
 
     $sql = "SELECT * FROM pets WHERE id = {$_GET['id']}";
     $petResult = $conn->query($sql);
 
     $pet = $petResult->fetch_assoc();
-?>
-<?php
-        require_once('../../required/auth.php');
-        require_once('../../required/database.php');
 
-        $sql = "SELECT * FROM pets WHERE data_desaparecido IS NOT NULL";
-        $petsResult = $conn->query($sql);
-
-        $pets = $petsResult->fetch_all(MYSQLI_ASSOC);
+    $pagina_atual = 'http';
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+        $pagina_atual .= "s";
+    }
+    $pagina_atual .= "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 
-
-        $pagina_atual = 'http';
-        if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
-            $pagina_atual .= "s";
-        }
-        $pagina_atual .= "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-
-        $qr_code_url = "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" . urlencode($pagina_atual);
+    $qr_code_url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($pagina_atual);
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +36,8 @@
     <title>Document</title>
 </head>
 <body>
-  <?php include_once('../components/navbar.php') ?>
+
+  <?php if(isset($_SESSION['auth'])) { include_once('../components/navbar.php'); } ?>
 
   
   <main class="container mt-5">
