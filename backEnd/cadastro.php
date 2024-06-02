@@ -2,7 +2,7 @@
     require_once('../required/database.php');
     require_once('../required/auth.php');
 
-
+$user_id = $_SESSION['id'];
 $nome = $_POST['nome'];
 $raca = $_POST['raca'];
 $situacao = $_POST['situacao'];
@@ -23,9 +23,9 @@ if (!empty($foto)) {
 try {
     $conn->begin_transaction();
 
-    $sql = "INSERT INTO pets (nome, raca, data_desaparecido, contato, detalhes, foto) VALUES (?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO pets (user_id, nome, raca, data_desaparecido, contato, detalhes, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $nome, $raca, $data_desaparecimento, $contato, $detalhes, $foto_destino);
+    $stmt->bind_param("sssssss", $user_id, $nome, $raca, $data_desaparecimento, $contato, $detalhes, $foto_destino);
     $result = $stmt->execute();
 
     if (!$result) {

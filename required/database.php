@@ -31,6 +31,7 @@ $conn->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS pets (
     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT(6) UNSIGNED NOT NULL,
     nome VARCHAR(30) NOT NULL,
     raca VARCHAR(30) NOT NULL,
     contato VARCHAR(15) NOT NULL,

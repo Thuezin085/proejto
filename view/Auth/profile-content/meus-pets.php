@@ -1,39 +1,18 @@
 <?php
-        require_once('../../required/auth.php');
-        require_once('../../required/database.php');
+    require_once('../../../required/auth.php');
+    require_once('../../../required/database.php');
 
-        $sql = "SELECT * FROM pets WHERE data_desaparecido IS NOT NULL";
-        $petsResult = $conn->query($sql);
 
-        $pets = $petsResult->fetch_all(MYSQLI_ASSOC);
+    $user_id = $_SESSION['id'];
+    $sql = "SELECT * FROM pets WHERE user_id = {$user_id}";
+
+    $petsResult = $conn->query($sql);
+
+    $pets = $petsResult->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <!-- Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 
-    <!-- Css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Meta -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-  <?php include_once('../components/navbar.php') ?>
-
-  <main class="container mt-5">
-    <div class="row">
-
-      <div class="col-12">
-        <label for="" class="padrao mb-3">Pets Desaparecidos:</label>
-      </div>
-
+<div class="row">
       <?php
         foreach ($pets as $pet) {
       ?>
@@ -72,7 +51,7 @@
                   </div>
 
                   <div class="w-100 d-flex justify-content-end">
-                    <!-- <a href="pet.php?id=<?= $pet['id'] ?>" class="padrao text-danger me-3">Excluir</a> -->
+                    <a href="#" class="padrao text-danger me-3">Excluir</a>
                     <a href="pet.php?id=<?= $pet['id'] ?>" class="padrao">Detalhes</a>
                   </div>
               </div>
@@ -80,9 +59,3 @@
       <?php } ?> 
 
     </div>
-  </main>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-</body>
-</html>
