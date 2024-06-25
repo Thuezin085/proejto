@@ -63,7 +63,7 @@
         <div class="detalhes mt-5">
             <div class="row">
                 <div class="col-4">
-                    <label for="" class="mt-4 mb-2 labelPadrao">Contato:</label>
+                    <label for="" class="mt-4 mb-2 labelPadrao">Celular:</label>
                     <input type="number" name="contato" class="input form-control">
                 </div>
             </div>

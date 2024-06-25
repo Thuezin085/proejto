@@ -35,11 +35,12 @@
                 
                   <hr class="my-2">
 
-                  <div class="mb-2">
-                    <label for="" class="padrao d-block">Data de Desaparecimento:</label>
-                    <span class="padrao text-muted"><?= date('d/m/Y', strtotime($pet['data_desaparecido'])) ?></span>
-                  </div>
-
+                  <?php if ($pet['data_desaparecido']) { ?>
+                    <div class="mb-2">
+                      <label for="" class="padrao d-block">Data de Desaparecimento:</label>
+                      <span class="padrao text-muted"><?= date('d/m/Y', strtotime($pet['data_desaparecido'])) ?></span>
+                    </div>
+                  <?php } ?>
                   <div class="mb-2">
                         <label for="" class="padrao d-block">Contato:</label>
                         <p class="padrao valores text-truncate text-muted "><?= $pet['contato'] ?></p>
@@ -51,7 +52,7 @@
                   </div>
 
                   <div class="w-100 d-flex justify-content-end">
-                    <a href="#" class="padrao text-danger me-3">Excluir</a>
+                    <a href="../../backEnd/excluirPet.php?pet_id=<?= $pet['id'] ?>" class="padrao text-danger me-3">Excluir</a>
                     <a href="pet.php?id=<?= $pet['id'] ?>" class="padrao">Detalhes</a>
                   </div>
               </div>
